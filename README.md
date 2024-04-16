@@ -95,3 +95,15 @@ Concurrent access to the singleton vector of `Notification` structs necessitates
 Rust prioritizes memory safety and avoids data races. Unlike Java's `static` variables, Rust's static items are immutable by default.  This prevents concurrent access issues that can arise when multiple threads try to modify the same data at once. While `lazy_static` allows initialization on first use, the content remains fixed. Rust's approach enforces thread-safe access through mechanisms like `RwLock<>` when mutation is necessary. This trade-off ensures predictable program behavior and avoids potential crashes.
 
 #### Reflection Subscriber-2
+
+- Have you explored things outside of the steps in the tutorial, for example: src/lib.rs? If not, explain why you did not do so. If yes, explain things that you have learned from those other parts of code.
+
+I have explored src/lib.rs. In essence, the code prepares the application we are making here with an HTTP client. It also loads configuration from defaults and environment variables, and establishes a way to handle and return errors with messages that convey information to users. 
+
+- Since you have completed the tutorial by now and have tried to test your notification system by spawning multiple instances of Receiver, explain how Observer pattern eases you to plug in more subscribers. How about spawning more than one instance of Main app, will it still be easy enough to add to the system?
+
+If we did not have the observer, then it would be super hard to handle duplicates. We use the obserber to make duplicates of the receiver app. 
+
+- Have you tried to make your own Tests, or enhance documentation on your Postman collection? If you have tried those features, tell us whether it is useful for your work (it can be your tutorial work or your Group Project).
+
+It is helpful because we get to see how well-put our implementation is. We get to make tests seeing if the use case is as correct as how we want it. 
